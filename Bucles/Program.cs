@@ -45,10 +45,29 @@ namespace Bucles
                 Console.WriteLine(nombre);
             }
 
+            //Usando una función para recorrer la lista
+            //RecorrerLista(nombres);
+
             Console.WriteLine("\n");
             //Eliminar elementos de una lista
             nombres.Remove("José");
             nombres.RemoveAt(1); //Eliminar desde una posición específica
+
+
+
+
+            //LISTA DE ENTEROS
+            List<int> enteros = new List<int> { 100, 200, 300 };
+            enteros.Add(400);
+            RecorrerLista(enteros);
+
+
+            //RECORRER LISTA USANDO FOR --> SE USA COUNT
+            for(int i=0; i<enteros.Count; i++)
+            {
+                Console.WriteLine(enteros[i]);
+            }
+
 
 
 
@@ -70,6 +89,15 @@ namespace Bucles
                 Console.WriteLine(array[i]);
             }
 
+
+            //Funcion de tipo genérico
+            void RecorrerLista<T>(List<T> lista)
+            {
+                foreach(var valor in lista)
+                {
+                    Console.WriteLine(valor);
+                }
+            }
 
             Console.ReadKey();
 

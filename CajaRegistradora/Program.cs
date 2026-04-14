@@ -41,47 +41,48 @@
                 transactions = testData.Length;
             }
 
-            while (transactions > 0)
-            {
-                transactions -= 1;
-                int itemCost = valueGenerator.Next(2, 20);
-
-                if (useTestData)
+            else if (useTestData) { }
+                while (transactions > 0)
                 {
-                    itemCost = testData[testCounter];
-                    testCounter += 1;
+                    transactions -= 1;
+                    int itemCost = valueGenerator.Next(2, 20);
+
+                    if (useTestData)
+                    {
+                        itemCost = testData[testCounter];
+                        testCounter += 1;
+                    }
+
+                    int paymentOnes = itemCost % 2;                 // value is 1 when itemCost is odd, value is 0 when itemCost is even
+                    int paymentFives = (itemCost % 10 > 7) ? 1 : 0; // value is 1 when itemCost ends with 8 or 9, otherwise value is 0
+                    int paymentTens = (itemCost % 20 > 13) ? 1 : 0; // value is 1 when 13 < itemCost < 20 OR 33 < itemCost < 40, otherwise value is 0
+                    int paymentTwenties = (itemCost < 20) ? 1 : 2;  // value is 1 when itemCost < 20, otherwise value is 2
+
+                    // display messages describing the current transaction
+                    Console.WriteLine($"Customer is making a ${itemCost} purchase");
+                    Console.WriteLine($"\t Using {paymentTwenties} twenty dollar bills");
+                    Console.WriteLine($"\t Using {paymentTens} ten dollar bills");
+                    Console.WriteLine($"\t Using {paymentFives} five dollar bills");
+                    Console.WriteLine($"\t Using {paymentOnes} one dollar bills");
+
+                    // MakeChange manages the transaction and updates the till 
+                    string transactionMessage = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
+
+                    // Backup Calculation - each transaction adds current "itemCost" to the till
+                    if (transactionMessage == "transaction succeeded")
+                    {
+                        Console.WriteLine($"Transaction successfully completed.");
+                        registerCheckTillTotal += itemCost;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Transaction unsuccessful: {transactionMessage}");
+                    }
+
+                    Console.WriteLine(TillAmountSummary(cashTill));
+                    Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
+                    Console.WriteLine();
                 }
-
-                int paymentOnes = itemCost % 2;                 // value is 1 when itemCost is odd, value is 0 when itemCost is even
-                int paymentFives = (itemCost % 10 > 7) ? 1 : 0; // value is 1 when itemCost ends with 8 or 9, otherwise value is 0
-                int paymentTens = (itemCost % 20 > 13) ? 1 : 0; // value is 1 when 13 < itemCost < 20 OR 33 < itemCost < 40, otherwise value is 0
-                int paymentTwenties = (itemCost < 20) ? 1 : 2;  // value is 1 when itemCost < 20, otherwise value is 2
-
-                // display messages describing the current transaction
-                Console.WriteLine($"Customer is making a ${itemCost} purchase");
-                Console.WriteLine($"\t Using {paymentTwenties} twenty dollar bills");
-                Console.WriteLine($"\t Using {paymentTens} ten dollar bills");
-                Console.WriteLine($"\t Using {paymentFives} five dollar bills");
-                Console.WriteLine($"\t Using {paymentOnes} one dollar bills");
-
-                // MakeChange manages the transaction and updates the till 
-                string transactionMessage = MakeChange(itemCost, cashTill, paymentTwenties, paymentTens, paymentFives, paymentOnes);
-
-                // Backup Calculation - each transaction adds current "itemCost" to the till
-                if (transactionMessage == "transaction succeeded")
-                {
-                    Console.WriteLine($"Transaction successfully completed.");
-                    registerCheckTillTotal += itemCost;
-                }
-                else
-                {
-                    Console.WriteLine($"Transaction unsuccessful: {transactionMessage}");
-                }
-
-                Console.WriteLine(TillAmountSummary(cashTill));
-                Console.WriteLine($"Expected till value: {registerCheckTillTotal}\n\r");
-                Console.WriteLine();
-            }
 
             Console.WriteLine("Press the Enter key to exit");
             do

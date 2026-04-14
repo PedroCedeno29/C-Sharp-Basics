@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CajaRegistradora", "CajaRegistradora\CajaRegistradora.csproj", "{00D1AE25-4302-447F-862F-7C248D1F1C44}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "Linq\LINQ.csproj", "{8BAE9C35-34D1-499B-8EB5-7EDC807B722E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POO", "POO\POO.csproj", "{71AB85CE-17CC-48BE-8A11-872139931806}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{00D1AE25-4302-447F-862F-7C248D1F1C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00D1AE25-4302-447F-862F-7C248D1F1C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00D1AE25-4302-447F-862F-7C248D1F1C44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BAE9C35-34D1-499B-8EB5-7EDC807B722E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BAE9C35-34D1-499B-8EB5-7EDC807B722E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BAE9C35-34D1-499B-8EB5-7EDC807B722E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BAE9C35-34D1-499B-8EB5-7EDC807B722E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71AB85CE-17CC-48BE-8A11-872139931806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71AB85CE-17CC-48BE-8A11-872139931806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71AB85CE-17CC-48BE-8A11-872139931806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71AB85CE-17CC-48BE-8A11-872139931806}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
